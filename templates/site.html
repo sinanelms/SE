@@ -1,0 +1,56 @@
+{% extends "layoutsite.html" %}
+{% block body %}
+{% from "includes/formhelpers.html" import render_field %}
+
+
+<div class ="jumbotron text-center">
+    
+   <!--site2 /bilgi için-->             
+    
+     <div class="container">
+                        
+            <form action="/bilgi" method= "post">
+              <div class="form-group">
+                <label  for="comment"><h4>İsim(ler):</h4> </label>
+                <textarea name="keyword" class="form-control" rows="5" id="comment" placeholder="Birden fazla isim yazmak istiyorsanız isimleri alt alta yazınız..."></textarea>
+              </div>
+              <hr>
+              
+                <button type="submit" class="btn btn-primary ">Başla</button>
+            </form>
+          </div>
+          <hr>
+          <p> <b>NOT:</b> <strong>Bir alt satıra geçmek için "<ins>Enter</ins>"  tuşunu kullanınız...</strong><br></p>
+          <p><em>*Son ismi yazdıktan sonra lütfen bir alt satıra geçmeyin aksi halde anasayfaya yönlendirileceksiniz.</em></p>
+          <hr>
+          
+          {% if articles %}
+          <strong><b>{{articles.created_date}}</b></strong> tarihine kadar <strong>{{articles.id}}</strong> kişi sanal kur'a çekti...
+          
+          {% else %}
+          <strong>İlk deneyen siz olun</strong> 
+          {% endif %}   
+
+
+          </div>   
+          
+       
+          <style> 
+            body {
+                background-image: url("http://1.bp.blogspot.com/-Kpxpq8iUz4Q/UEY9pqjeH5I/AAAAAAAAF-c/nTqQVZafHnw/s1600/Pattern+Wallpapers+(12).jpg"), url("paper.gif");
+                
+            }
+          </style> 
+
+
+
+</div>
+
+
+
+  
+
+  
+
+
+{% endblock body %}

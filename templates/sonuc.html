@@ -1,0 +1,161 @@
+{% extends "layoutsite.html" %}
+{% block body %}
+    {% if articles %}
+    
+    <div id="loader"></div>
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+      
+    <table class="table">
+        <h3 class="text-center"><b><strong><u>SONUÇLAR</u></strong></b></h3>
+        <hr>   
+        {% for article in articles %}          
+      <tbody > 
+          <tr class="table-dark text-dark jumbotron text-center">                      
+            <td><b><h3><b>{{article.isim}}</b></h3></b></td>
+              <td></td>               
+            </tr>
+        <tr class="table-primary ">
+          <td><b>Atandığınız Yer</b></td>
+          <td >{{article.yerler}}</td>          
+        </tr>
+        <tr class="table-success">
+          <td><b>İli</b></td>
+          <td>{{article.ili}}</td>
+          
+        </tr>
+        <tr class="table-danger">
+          <td><b>Bölgesi</b></td>
+          <td>{{article.bolge}}. Bölge</td>          
+        </tr>
+        <tr class="table-info">
+          <td><b>Teşkilat Yapısı</b></td>
+          <td>{{article.teskilati}}</td>
+          
+        </tr>
+        <tr class="table-warning">
+          <td><b>Bağlı Olduğu ACM</b></td>
+          <td>{{article.ACM}}</td>
+      </tr>
+          
+      </tbody>
+      {% endfor %}
+      <tr class="table-active text-dark jumbotron text-center">
+          <td><b><h4><a href="/maps">Haritalara bakmak için tıklayın</a></h4></b></td>
+         <td></td>                  
+         </tr>
+       <hr>  
+    </table>
+           
+    <hr> 
+    
+    <a href="/iletisim">      
+      <mona> 
+        <figure class="swing">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg/687px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" width="200" >
+        </figure> </mona>
+    </a>
+<style>
+  mona {background: #eee;}
+.swing {
+    animation: swing ease-in-out 1s infinite alternate;
+    transform-origin: center -20px;
+    float:right;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+.swing img {
+    border: 5px solid #f8f8f8;
+    display: block;
+}
+.swing:after{
+    content: '';
+    position: absolute;  
+    width: 20px; height: 20px;  
+    border: 1px solid #999;
+    top: -10px; left: 50%;
+    z-index: 0;
+    border-bottom: none;
+    border-right: none;
+    transform: rotate(45deg);
+}
+/* nail */
+.swing:before{
+    content: '';
+    position: absolute;
+    width: 5px; height: 5px;
+    top: -14px;left: 54%;
+    z-index: 5;
+    border-radius: 50% 50%;
+    background: #000;
+}
+ 
+@keyframes swing {
+    0% { transform: rotate(3deg); }
+    100% { transform: rotate(-3deg); }
+}
+</style>
+   
+ 
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% else %}
+<div class = "alert alert-danger">yazı yok</div>
+{% endif %}
+</table>
+
+
+
+     
+        
+
+
+<!--yükleniyor-->
+<script>
+    var myVar;
+    
+    function myFunction() {
+        myVar = setTimeout(showPage, 3000);
+    }
+    
+    function showPage() {
+      document.getElementById("loader").style.display = "None";
+      document.getElementById("myDiv").style.display = "block";
+    }
+
+
+    
+</script>
+
+
+
+
+
+{% endblock body %}
+
+
+
+
+
